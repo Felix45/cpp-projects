@@ -1,0 +1,2 @@
+## Sign up & login project
+>  Added a console project that enables a user to `register` to create an account and `log in`. The project aims to help students learn `functions` `files` `looping` and `decision making` in c++
