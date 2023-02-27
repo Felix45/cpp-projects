@@ -1,5 +1,6 @@
 #include <iostream>
 #include "sort.h"
+#include "mergesort.h"
 
 using namespace std;
 
@@ -24,7 +25,7 @@ int main() {
         selectionsort(unsorted, size);
       break;
       case 3:
-        //mergesort(unsorted);
+        mergesort(unsorted, 0, size - 1);
       break;
       default:
       break;
