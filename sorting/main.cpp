@@ -24,9 +24,6 @@ int main() {
       case 2:
         selectionsort(unsorted, size);
       break;
-      case 3:
-        mergesort(unsorted, 0, size - 1);
-      break;
       default:
       break;
     }
