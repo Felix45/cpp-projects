@@ -1,6 +1,5 @@
 #include <iostream>
 #include "sort.h"
-#include "mergesort.h"
 
 using namespace std;
 
@@ -23,6 +22,9 @@ int main() {
       break;
       case 2:
         selectionsort(unsorted, size);
+      break;
+      case 3:
+        cout << "Mergesort: Under construction" << endl;
       break;
       default:
       break;
