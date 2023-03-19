@@ -7,6 +7,9 @@
 
 using namespace std;
 
+void printArray(int list[], int length);
+int* merge(int listA[], int listB[], int left, int right);
+
 void bubblesort(int* numbers, int n) {
   int arr_length = n;
   cout << "Sorting with Bubble Sort:" << endl;
@@ -56,4 +59,73 @@ void selectionsort(int* numbers, int n) {
   cout << "===============================================" << endl;
 }
 
+int* mergesort(int list[], int length) {
+  if(length < 2)
+    return list;
+  
+  int i = 0;
+  int j = 0;
+  int half = length / 2;
+  int otherHalf = length - half;
+
+  int lstA[half];
+  int lstB[otherHalf];
+
+  while(i < half) {
+    lstA[i] = list[i];
+    i += 1;
+  } 
+
+  while(i < length) {
+    lstB[j] = list[i];
+    i += 1;
+    j += 1;
+  }
+
+  printArray(lstA, half);
+  printArray(lstB, otherHalf);
+
+  return merge(mergesort(lstA, half), mergesort(lstB, otherHalf), half, otherHalf);
+}
+
+void printArray(int list[], int length) {
+  for(int i = 0; i < length; i++)
+    cout << setw(5) << list[i];
+  cout << endl;
+}
+
+
+int* merge(int listA[], int listB[], int lengthA, int lengthB) {
+  int i = 0;
+  int j = 0;
+  int currentIndex = 0;
+
+  int* result = new int[lengthA + lengthB];
+
+  while(i < lengthA && j < lengthB) {
+    if(listA[i] < listB[j]) {
+      result[currentIndex++] = listA[i];
+      i += 1;
+    } else {
+      result[currentIndex++] = listB[j];
+      j += 1;
+    }
+  }
+
+  while(i < lengthA) {
+    result[currentIndex] = listA[i];
+    i += 1;
+    currentIndex += 1;
+  }
+
+  while(j < lengthB) {
+    result[currentIndex] = listB[j];
+    j += 1;
+    currentIndex += 1;
+  }
+
+  printArray(result, lengthA + lengthB);
+
+  return result;
+}
 #endif
