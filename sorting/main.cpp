@@ -7,7 +7,6 @@ int main() {
    int choice;
    int unsorted[] = {90, 0, 3, 2, -1, -80, 200, -300};
    int size = sizeof(unsorted) / sizeof(int);
-   int* sorted;
 
    do {
     cout << "Enter a sorting choice from menu" << endl;
@@ -25,8 +24,7 @@ int main() {
         selectionsort(unsorted, size);
       break;
       case 3:
-        sorted = mergesort(unsorted, size);
-        printArray(sorted, size);
+        mergesort(unsorted, size);
       break;
       default:
       break;
