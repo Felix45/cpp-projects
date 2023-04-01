@@ -59,6 +59,20 @@ void selectionsort(int* numbers, int n) {
   cout << "===============================================" << endl;
 }
 
+void insertionsort (int list[], int length) {
+  for(int i = 1; i < length; i++) {
+    int j = i - 1;
+    int insertItem = list[i];
+
+    while(j >= 0 && list[j] > insertItem) {
+      list[j + 1] = list[j];
+      list[j]     = insertItem;
+      j = j - 1;
+    }
+    printArray(list, length);
+  }
+}
+
 int* mergesort(int list[], int length) {
   if(length < 2)
     return list;
